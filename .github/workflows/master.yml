@@ -18,7 +18,8 @@ jobs:
         with:
           go-version: '^1.13.1'
       - name: install semver package
-        run: github.com/stevenmatthewt/semantics
+        run: go get github.com/stevenmatthewt/semantics
       - name: run semver incrementer
         run: |
           echo "Incrementing semantic version and tagging master branch"
+          semantics --patch=.* --dry-run
